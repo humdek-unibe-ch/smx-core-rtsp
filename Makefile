@@ -61,8 +61,9 @@ $(PROJECT): $(SOURCES) $(INCLUDES)
 install:
 	mkdir -p $(TGT_BIN) $(TGT_DOC) $(TGT_TPL)
 	cp -a $(APPNAME) $(TGT_BIN)/$(VAPPNAME)
-	cp -a README.md $(TGT_DOC)/README.md
-	cp -a SMX_CHANGELOG.md $(TGT_DOC)/SMX_CHANGELOG.md
+	cp -a README.md $(TGT_DOC)/.
+	cp -a SMX_CHANGELOG.md $(TGT_DOC)/.
+	cp -a utils/smxrtsp_graph2svg.py $(TGT_BIN)/.
 	rm -rf  $(TGT_TPL)/smxappgen-$(LIB_VERSION)
 	cp -aR $(LOCAL_TPL)/app $(TGT_TPL)/smxappgen-$(LIB_VERSION)
 
