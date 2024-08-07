@@ -1,3 +1,3 @@
 [submodule "streamix-sia-lang"]
 	path = streamix-sia-lang
-	url = https://github.com/moiri/streamix-sia-lang.git
+	url = https://github.com/humdek-unibe-ch/smx-core-sia_lang.git
