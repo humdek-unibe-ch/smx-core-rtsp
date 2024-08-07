@@ -1,4 +1,14 @@
-# `v0.6.0` (latest)
+# `v1.0.0` (latest)
+
+### Changes
+
+ - Update to library libsmxutils-1.0
+ - Migrate to GitHub.
+ - Adapt to schema changes.
+
+
+-------------------
+# `v0.6.0`
 
 ### Changes
 
