@@ -712,7 +712,8 @@ void smxgen_tpl_box( igraph_t* g, char* box_path, char* build_path )
 }
 
 /******************************************************************************/
-void smxgen_tpl_main( igraph_t* g, char* build_path, const char* version )
+void smxgen_tpl_main( igraph_t* g, char* build_path, const char* version,
+        const char* dash_version )
 {
     char path_tmp[500];
     char file[1000];
@@ -834,6 +835,14 @@ void smxgen_tpl_main( igraph_t* g, char* build_path, const char* version )
     {
         fprintf( stdout, "(*) created file '%s'\n", file );
         smxutility_file_cp( file, "schemas/config.json" );
+    }
+    sprintf( file, "%s/dash.json", path_tmp );
+    smxconfgen_generate_dash_schema( g, igraph_cattribute_GAS( g, "name" ),
+            version, dash_version, path_tmp, "dash.json" );
+    if( rc == 0 )
+    {
+        fprintf( stdout, "(*) created file '%s'\n", file );
+        smxutility_file_cp( file, "schemas/dash.json" );
     }
 
     sprintf( path_tmp, "%s/tpl/debian", build_path );

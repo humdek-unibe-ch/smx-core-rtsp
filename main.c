@@ -49,6 +49,7 @@ int main( int argc, char **argv )
     char* box_path = NULL;
     char* author = "TPF <tpf@humdek.unibe.ch>";
     char* version = "<maj_version>";
+    char* dash_version = "<dash_maj_version>";
     char* path_sia;
     char* file_name;
     char* path_main;
@@ -60,7 +61,7 @@ int main( int argc, char **argv )
     int c;
     igraph_i_set_attribute_table( &igraph_cattribute_table );
 
-    while( ( c = getopt( argc, argv, "hva:b:e:p:f:" ) ) != -1 )
+    while( ( c = getopt( argc, argv, "hva:b:d:e:p:f:" ) ) != -1 )
         switch( c ) {
             case 'h':
                 printf( "Usage:\n  %s [OPTION...] FILE\n\n", argv[0] );
@@ -87,6 +88,9 @@ int main( int argc, char **argv )
                 break;
             case 'a':
                 version = optarg;
+                break;
+            case 'd':
+                dash_version = optarg;
                 break;
             case 'f':
                 format = optarg;
@@ -170,7 +174,7 @@ int main( int argc, char **argv )
     igraph_cattribute_GAS_set( &g, "author", author );
     igraph_cattribute_GAS_set( &g, "name", file_name );
     smxgen_tpl_box( &g, box_path, build_path );
-    smxgen_tpl_main( &g, build_path, version );
+    smxgen_tpl_main( &g, build_path, version, dash_version );
     fprintf( stdout, "\n" );
     fprintf( stdout, "  DO NOT MODIFY FILES MARKED BY (*)\n" );
     fprintf( stdout, "\n" );

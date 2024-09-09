@@ -85,7 +85,7 @@ $(SIAGRAPH): $(PNSCGRAPH)
 	$(TGT_BIN)/smxsia -f $(FORMAT) -o $@ $^ $(GENPATH)/sia/*
 
 $(PNSCGRAPH) $(OUTSRC) $(OUTINC): $(OUTGRAPH)
-	$(TGT_BIN)/$(SMXRTSP) $^ -p $(GENPATH) -f $(FORMAT) -e "<author>"
+	$(TGT_BIN)/$(SMXRTSP) $^ -p $(GENPATH) -f $(FORMAT) -e "<author>" -a "$(LIB_VERSION)" -d "$(DASH_VERSION)"
 
 $(OUTGRAPH): $(APPNAME).smx
 	$(TGT_BIN)/$(SMXC) -f $(FORMAT) -p $(GENPATH) $(SIA_INPUT) -o $(OUTGRAPH_NAME) $^

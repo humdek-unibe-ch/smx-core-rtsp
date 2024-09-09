@@ -13,6 +13,9 @@ VREV = 0
 VDEB = 1
 
 # the compiler
+DASH_VERSION = <smx_dash_version>
+
+# the compiler
 SMXC = <smxc_dependency>
 
 # the graph post-processor
