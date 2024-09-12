@@ -811,7 +811,7 @@ void smxgen_tpl_main( igraph_t* g, char* build_path, const char* version,
 
     sprintf( file, "%s/app.json", path_tmp );
     rc = smxconfgen_generate_file( g, igraph_cattribute_GAS( g, "name" ),
-            version, false, path_tmp, "app.json" );
+            version, dash_version, false, path_tmp, "app.json" );
     if( rc == 0 )
     {
         fprintf( stdout, "(*) created file '%s'\n", file );
@@ -830,7 +830,7 @@ void smxgen_tpl_main( igraph_t* g, char* build_path, const char* version,
     mkdir( path_tmp, 0755 );
     sprintf( file, "%s/config.json", path_tmp );
     smxconfgen_generate_file( g, igraph_cattribute_GAS( g, "name" ),
-            version, true, path_tmp, "config.json" );
+            version, dash_version, true, path_tmp, "config.json" );
     if( rc == 0 )
     {
         fprintf( stdout, "(*) created file '%s'\n", file );
