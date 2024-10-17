@@ -85,7 +85,7 @@ $(SIAGRAPH): $(PNSCGRAPH)
 	$(TGT_BIN)/smxsia -f $(FORMAT) -o $@ $^ $(GENPATH)/sia/*
 
 $(PNSCGRAPH) $(OUTSRC) $(OUTINC): $(OUTGRAPH)
-	$(TGT_BIN)/$(SMXRTSP) $^ -p $(GENPATH) -f $(FORMAT) -e "<author>" -a "$(LIB_VERSION)" -d "$(DASH_VERSION)"
+	$(TGT_BIN)/$(SMXRTSP) $^ -p $(GENPATH) -f $(FORMAT) -e "<author>" -a "$(LIB_VERSION)" -d "$(DASH_VERSION)" -s "$(SCHEMA_DEFINITIONS)"
 
 $(OUTGRAPH): $(APPNAME).smx
 	$(TGT_BIN)/$(SMXC) -f $(FORMAT) -p $(GENPATH) $(SIA_INPUT) -o $(OUTGRAPH_NAME) $^
@@ -112,11 +112,14 @@ valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v ./$(APPNAME) -A "{ \"experiment_id\": \"experiment OID\" }"
 
 install:
-	mkdir -p $(TGT_BIN) $(TGT_DOC) $(TGT_CONF)
+	mkdir -p $(TGT_BIN) $(TGT_DOC) $(TGT_CONF) $(TGT_CONF)/maps $(TGT_CONF)/schemas $(TGT_CONF)/configs
 	cp -a $(APPNAME) $(TGT_BIN)/$(VAPPNAME)
 	cp -a README.md $(TGT_DOC)/README.md
 	cp -a app.json $(TGT_CONF)/app.json
 	cp -a app.zlog $(TGT_CONF)/app.zlog
+	cp -a schemas/* $(TGT_CONF)/schemas/.
+	cp -a maps/* $(TGT_CONF)/maps/.
+	cp -a configs/* $(TGT_CONF)/configs/.
 
 uninstall:
 	rm $(TGT_BIN)/$(VAPPNAME)
