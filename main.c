@@ -47,6 +47,7 @@ int main( int argc, char **argv )
     const char* src_file_name;
     char* build_path = NULL;
     char* box_path = NULL;
+    const char* schema_defs = NULL;
     char* author = "TPF <tpf@humdek.unibe.ch>";
     char* version = "<maj_version>";
     char* dash_version = "<dash_maj_version>";
@@ -61,18 +62,21 @@ int main( int argc, char **argv )
     int c;
     igraph_i_set_attribute_table( &igraph_cattribute_table );
 
-    while( ( c = getopt( argc, argv, "hva:b:d:e:p:f:" ) ) != -1 )
+    while( ( c = getopt( argc, argv, "hva:b:d:s:e:p:f:" ) ) != -1 )
         switch( c ) {
             case 'h':
                 printf( "Usage:\n  %s [OPTION...] FILE\n\n", argv[0] );
                 printf( "Options:\n" );
                 printf( "  -h               This message\n" );
                 printf( "  -v               Version\n" );
-                printf( "  -b 'path'        Path to store the generated box files\n" );
-                printf( "  -e 'author'      The author of the source (default: TPF <tpf@humdek.unibe.ch>)" );
-                printf( "  -p 'path'        Path to store the generated app files\n" );
-                printf( "  -f 'format'      Format of the graph either 'gml' or 'graphml'\n" );
                 printf( "  -a 'version'     The application version\n" );
+                printf( "  -b 'path'        Path to store the generated box files\n" );
+                printf( "  -d 'version'     The dashboard version\n" );
+                printf( "  -e 'author'      The author of the source (default: TPF <tpf@humdek.unibe.ch>)\n" );
+                printf( "  -f 'format'      Format of the graph either 'gml' or 'graphml'\n" );
+                printf( "  -p 'path'        Path to store the generated app files\n" );
+                printf( "  -s 'definitions' Additional schema definitions of the form '<def_1>,...,<def_n>'\n"
+                        "                   where a definition <def_*> is of the form '<def_name>:<def_pkg_name>:<def_version>'\n" );
                 return 0;
             case 'v':
                 printf( "%s v%s\n", argv[0], VERSION );
@@ -91,6 +95,9 @@ int main( int argc, char **argv )
                 break;
             case 'd':
                 dash_version = optarg;
+                break;
+            case 's':
+                schema_defs = optarg;
                 break;
             case 'f':
                 format = optarg;
@@ -174,7 +181,7 @@ int main( int argc, char **argv )
     igraph_cattribute_GAS_set( &g, "author", author );
     igraph_cattribute_GAS_set( &g, "name", file_name );
     smxgen_tpl_box( &g, box_path, build_path );
-    smxgen_tpl_main( &g, build_path, version, dash_version );
+    smxgen_tpl_main( &g, build_path, version, dash_version, schema_defs );
     fprintf( stdout, "\n" );
     fprintf( stdout, "  DO NOT MODIFY FILES MARKED BY (*)\n" );
     fprintf( stdout, "\n" );

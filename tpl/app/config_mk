@@ -12,8 +12,12 @@ VMIN = 1
 VREV = 0
 VDEB = 1
 
-# the compiler
+# the version of the dash frontend
 DASH_VERSION = <smx_dash_version>
+
+# additional schema defintions used for event autocompletion and schema checking
+#SCHEMA_DEFINITIONS = "smx_uep_enhanced_input:smxuepenhancedinput:0.1,smx_uep_messaging:smxuepmessaging:1.1,smx_uep_xr_vive_gaze:smxuepxrvive:0.1"
+SCHEMA_DEFINITIONS =
 
 # the compiler
 SMXC = <smxc_dependency>

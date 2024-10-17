@@ -221,8 +221,12 @@ void smxgen_tpl_box( igraph_t* g, char* box_path, char* build_path );
  *  The Streamix app version
  * @param dash_version
  *  The version of the dash frontend.
+ * @param schema_defs
+ *  A string holding additional app schema definitions. The string is of the
+ *  form "<def_1>,...,<def_n>" wehere each definition string is of the form
+ *  "<def_name>:<def_pkg_name>:<def_version>".
  */
 void smxgen_tpl_main( igraph_t* g, char* build_path, const char* version,
-        const char* dash_version );
+        const char* dash_version, const char* schema_defs );
 
 #endif /* SMXGEN_H */
