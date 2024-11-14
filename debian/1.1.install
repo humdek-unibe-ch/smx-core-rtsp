@@ -1,0 +1,4 @@
+etc/smx/tpl/smxappgen-1.1/*
+etc/smx/tpl/smxappgen-1.1/*/*
+etc/smx/tpl/smxappgen-1.1/*/*/*
+utils/smxrtsp_graph2svg.py /usr/bin
