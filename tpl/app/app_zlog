@@ -1,10 +1,10 @@
 [global]
-default format = "[%d.%us] [%V] [%c] %m%n"
+default format = "[%d.%us d(%z)] [%V] [%c] %m%n"
 rotate lock file = /tmp/zlog.lock
 [levels]
 EVENT = 50, LOG_INFO
 [formats]
-debug = "[%d.%us] [%V] [%t] [%c] %m%n"
+debug = "[%d.%us d(%z)] [%V] [%t] [%c] %m%n"
 [rules]
 #*.DEBUG   "/var/log/smx/%E(SMX_LOG_PREFIX).<app_name>-%E(SMX_LIB_VERSION).%p.debug.log", 1000MB * 5
 *.EVENT   "/var/log/smx/%E(SMX_LOG_PREFIX).<app_name>-%E(SMX_LIB_VERSION).%p.log", 10MB * 5
