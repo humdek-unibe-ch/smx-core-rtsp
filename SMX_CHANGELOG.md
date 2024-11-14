@@ -1,4 +1,19 @@
-# `v1.0.0` (latest)
+# `v1.1.0` (latest)
+
+### New Features
+
+- Add option to pass additional schema definitions.
+- Propagate dash version to the app schema.
+- Add dash schema file
+
+### Changes
+
+- Update to library `libsmxutils-1.1`.
+- Add time delta to GMT in log file.
+
+
+-------------------
+# `v1.0.0`
 
 ### Changes
 
