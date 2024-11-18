@@ -1,4 +1,4 @@
 etc/smx/tpl/smxappgen-<maj_version>/*
 etc/smx/tpl/smxappgen-<maj_version>/*/*
 etc/smx/tpl/smxappgen-<maj_version>/*/*/*
-utils/smxrtsp_graph2svg.py /usr/bin
+usr/bin/smxrtsp_graph2svg-<maj_version>.py
