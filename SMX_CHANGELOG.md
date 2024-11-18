@@ -1,4 +1,12 @@
-# `v1.1.0` (latest)
+# `v1.1.1` (latest)
+
+### Bug Fixes
+
+- Add the library version number to the `smxrtsp_graph2svg.py` binary.
+
+
+-------------------
+# `v1.1.0` (deprecated)
 
 ### New Features
 
