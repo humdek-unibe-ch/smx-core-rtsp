@@ -1,3 +1,9 @@
+smxrtsp1.1 (1.1.1-1) focal; urgency=medium
+
+  * versionize smxrtsp_graph2svg.py
+
+ -- Simon Maurer <simon.maurer@unibe.ch>  Mon, 18 Nov 2024 08:38:49 +0100
+
 smxrtsp1.1 (1.1.0-1) bionic; urgency=medium
 
   * Initial release
