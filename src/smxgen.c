@@ -170,14 +170,14 @@ void smxgen_connect( igraph_t* g, int ident, int eid, int vid, int mode,
 void smxgen_get_box_degrees( igraph_t* g, int id, int* indeg, int* outdeg )
 {
     igraph_vs_t v_cp;
-    igraph_vector_t indegree, outdegree;
+    igraph_vector_int_t indegree, outdegree;
 
     igraph_vs_1( &v_cp, id );
-    igraph_vector_init( &indegree, 1 );
+    igraph_vector_int_init( &indegree, 1 );
     igraph_degree( g, &indegree, v_cp, IGRAPH_IN, 1 );
     *indeg = ( int )VECTOR( indegree )[0];
 
-    igraph_vector_init( &outdegree, 1 );
+    igraph_vector_int_init( &outdegree, 1 );
     igraph_degree( g, &outdegree, v_cp, IGRAPH_OUT, 1 );
     *outdeg = ( int )VECTOR( outdegree )[0];
 }
@@ -287,7 +287,8 @@ void smxgen_network_create( igraph_t* g, int ident, int* tt_vcnt, int* tt_ecnt )
     igraph_eit_t e_it;
     int edge_cnt = igraph_ecount( g );
     struct timespec tt[2*edge_cnt];
-    int eid, vid1, vid2, ch_len, tt_type, i;
+    int ch_len, tt_type, i;
+    igraph_integer_t eid, vid1, vid2;
     int net_cnt = igraph_vcount( g );
     // init timer structures
     for( i=0; i<edge_cnt; i++ ) {
@@ -405,14 +406,15 @@ void smxgen_network_create( igraph_t* g, int ident, int* tt_vcnt, int* tt_ecnt )
 }
 
 /******************************************************************************/
-void smxgen_network_create_timer( igraph_t* g, int ident, int eid, int edge_cnt,
+void smxgen_network_create_timer( igraph_t* g, int ident, igraph_integer_t eid, int edge_cnt,
         int ch_len, struct timespec* tt, int* tt_vcnt, int* tt_ecnt )
 {
     struct timespec stt;
     struct timespec dtt;
     int net_cnt = igraph_vcount( g );
     const char* port_name = igraph_cattribute_EAS( g, GE_LABEL, eid );
-    int stt_idx, dtt_idx, ch_idx1, ch_idx2, ch_idx3, vid1, vid2, stt_id, dtt_id;
+    int stt_idx, dtt_idx, ch_idx1, ch_idx2, ch_idx3, stt_id, dtt_id;
+    igraph_integer_t vid1, vid2;
     stt.tv_sec = igraph_cattribute_EAN( g, GE_STS, eid );
     stt.tv_nsec = igraph_cattribute_EAN( g, GE_STNS, eid );
     dtt.tv_sec = igraph_cattribute_EAN( g, GE_DTS, eid );
@@ -504,7 +506,8 @@ void smxgen_network_destroy( igraph_t* g, int ident, int tt_vcnt, int tt_ecnt )
     igraph_vit_t v_it;
     igraph_es_t e_sel;
     igraph_eit_t e_it;
-    int eid, vid1, vid2, edge_cnt = igraph_ecount( g ), i;
+    igraph_integer_t eid, vid1, vid2;
+    int edge_cnt = igraph_ecount( g ), i;
     int net_cnt = igraph_vcount( g );
     // for all channels
     e_sel = igraph_ess_all( IGRAPH_EDGEORDER_ID );
