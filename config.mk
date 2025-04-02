@@ -13,10 +13,7 @@ VREV = 1
 VDEB = 1
 
 # the utility library
-LIB_SMXUTILS = -lsmxutils-1.1
-
-# the include path of the smxutlis header files
-INC_SMXUTILS = -I/usr/include/smx/libsmxutils-1.1
+SMX_LIBS = smxutils-1.1
 
 # the name of the application
 APPNAME = smxrtsp
