@@ -16,6 +16,8 @@ VAPPNAME = $(APPNAME)-$(LIB_VERSION)
 VPKGNAME = $(APPNAME)$(LIB_VERSION)
 
 TGT_BIN = $(DESTDIR)/usr/bin
+TGT_LIB = $(DESTDIR)/usr/lib/x86_64-linux-gnu
+TGT_INCLUDE_BASE = $(DESTDIR)/usr/include/smx
 TGT_DOC = $(DESTDIR)/usr/share/doc/$(VPKGNAME)
 TGT_CONF = $(DESTDIR)/etc/smx
 TGT_TPL = $(TGT_CONF)/tpl
@@ -30,14 +32,18 @@ INCLUDES = $(LOC_INC_DIR)/* \
 
 INCLUDES_DIR = -I/usr/include/igraph \
 			   -I/usr/include/smx \
+			   -I/usr/include/libbson-1.0 \
 			   -I$(LOC_INC_DIR) \
 			   -I$(SIA_LANG_DIR)/$(LOC_INC_DIR) \
 			   -I$(SIA_LANG_DIR)/uthash/src \
-			   -I. $(INC_SMXUTILS)
+			   $(patsubst %, -I$(TGT_INCLUDE_BASE)/lib%, $(SMX_LIBS)) \
+			   -I.
 
-LINK_DIR = -L/usr/local/lib
+LINK_DIR = -L/usr/local/lib \
+	$(patsubst %, -L$(TGT_LIB)/lib%, $(SMX_LIBS)) \
+	-L$(TGT_LIB)
 
-LINK_FILE = -ligraph $(LIB_SMXUTILS)
+LINK_FILE = -ligraph $(patsubst %, -l%, $(SMX_LIBS)) -lbson-1.0
 
 CFLAGS = -Wall \
 		 -DSMXRTSP_VERSION_LIB=\"$(LIB_VERSION)\" \
