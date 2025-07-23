@@ -13,7 +13,7 @@ VREV = 1
 VDEB = 1
 
 # the utility library
-SMX_LIBS = smxutils-1.1
+SMX_LIBS = smxigraph-0.1 smxutils-1.1
 
 # the name of the application
 APPNAME = smxrtsp
