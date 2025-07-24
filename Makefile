@@ -30,8 +30,7 @@ SOURCES = main.c \
 INCLUDES = $(LOC_INC_DIR)/* \
 		   $(SIA_LANG_DIR)/$(LOC_INC_DIR)/*
 
-INCLUDES_DIR = -I/usr/include/igraph \
-			   -I/usr/include/smx \
+INCLUDES_DIR = -I/usr/include/smx \
 			   -I/usr/include/libbson-1.0 \
 			   -I$(LOC_INC_DIR) \
 			   -I$(SIA_LANG_DIR)/$(LOC_INC_DIR) \
@@ -43,7 +42,7 @@ LINK_DIR = -L/usr/local/lib \
 	$(patsubst %, -L$(TGT_LIB)/lib%, $(SMX_LIBS)) \
 	-L$(TGT_LIB)
 
-LINK_FILE = -ligraph $(patsubst %, -l%, $(SMX_LIBS)) -lbson-1.0
+LINK_FILE = $(patsubst %, -l%, $(SMX_LIBS)) -lbson-1.0
 
 CFLAGS = -Wall \
 		 -DSMXRTSP_VERSION_LIB=\"$(LIB_VERSION)\" \
