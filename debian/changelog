@@ -1,3 +1,14 @@
+smxrtsp1.1 (1.1.2-1) focal; urgency=medium
+
+  [ Pierre Bürki ]
+  * adapt Makefile for newer versions of gcc
+
+  [ Simon Maurer ]
+  * fix app makefile template to handle library dependencies
+  * use igraph as Streamix dependency
+
+ -- Simon Maurer <simon.maurer@unibe.ch>  Thu, 24 Jul 2025 14:33:29 +0200
+
 smxrtsp1.1 (1.1.1-1) focal; urgency=medium
 
   * versionize smxrtsp_graph2svg.py
