@@ -9,14 +9,11 @@
 # The version number of the app ($(VMAJ).$(VMIN).$(VREV))
 VMAJ = 1
 VMIN = 1
-VREV = 1
+VREV = 2
 VDEB = 1
 
 # the utility library
-LIB_SMXUTILS = -lsmxutils-1.1
-
-# the include path of the smxutlis header files
-INC_SMXUTILS = -I/usr/include/smx/libsmxutils-1.1
+SMX_LIBS = smxigraph-0.1 smxutils-1.1
 
 # the name of the application
 APPNAME = smxrtsp

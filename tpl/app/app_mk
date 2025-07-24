@@ -43,7 +43,8 @@ INCLUDES_DIR = -I/usr/local \
 			   $(EXT_INCS_DIR)
 
 LINK_DIR = -L/usr/local/lib \
-	-L$(TGT_LIB) $(BOX_LIB_DIR) $(EXT_LIBS_DIR)
+	-L$(TGT_LIB) $(BOX_LIB_DIR) $(EXT_LIBS_DIR) \
+	$(patsubst %, -L$(TGT_LIB)/lib%, $(SMX_LIBS))
 
 LINK_FILE = $(LIBS) \
 	-lpthread \
