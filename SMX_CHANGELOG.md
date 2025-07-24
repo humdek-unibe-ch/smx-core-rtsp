@@ -1,7 +1,7 @@
 # Changelog
 
 -------------------
-## `v1.1.2` (latest)
+## `v1.2.0` (latest)
 
 ### Changes
 - Use `libigraph` from the Streamix dependency package.
