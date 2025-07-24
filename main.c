@@ -60,7 +60,7 @@ int main( int argc, char **argv )
     FILE* out_file;
     int path_size, name_size;
     int c;
-    igraph_i_set_attribute_table( &igraph_cattribute_table );
+    igraph_set_attribute_table( &igraph_cattribute_table );
 
     while( ( c = getopt( argc, argv, "hva:b:d:s:e:p:f:" ) ) != -1 )
         switch( c ) {
@@ -165,7 +165,7 @@ int main( int argc, char **argv )
     out_file = fopen( path_main_sia, "w" );
 
     if( strcmp( format, G_FMT_GML ) == 0 ) {
-        igraph_write_graph_gml( &g_new, out_file, NULL, G_GML_HEAD );
+        igraph_write_graph_gml( &g_new, out_file, 0, 0, "" );
     }
     else if( strcmp( format, G_FMT_GRAPHML ) == 0 ) {
         igraph_write_graph_graphml( &g_new, out_file, 0 );

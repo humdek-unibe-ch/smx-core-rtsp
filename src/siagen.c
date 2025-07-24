@@ -140,7 +140,7 @@ void siagen_insert_channels( igraph_t* new, igraph_t* nw, sia_t** symbols )
 {
     igraph_es_t e_sel;
     igraph_eit_t e_it;
-    int eid, eid1, eid2, vid, vid1, vid2;
+    igraph_integer_t eid, eid1, eid2, vid, vid1, vid2;
     char* sia_id1;
     char* sia_id2;
     char* name;
@@ -171,7 +171,7 @@ void siagen_insert_channels( igraph_t* new, igraph_t* nw, sia_t** symbols )
 
         sia = siagen_channel( nw, eid, sia_id1, sia_id2, vid );
         name = malloc( strlen( TEXT_CH ) + CONST_ID_LEN + 2 );
-        sprintf( name, "%s_%d", TEXT_CH, vid );
+        sprintf( name, "%s_%d", TEXT_CH, ( int )vid );
         sia->smx_name = name;
         HASH_ADD( hh_smx, *symbols, smx_name, strlen( sia->smx_name ), sia );
 

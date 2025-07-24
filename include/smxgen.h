@@ -136,8 +136,9 @@ void smxgen_network_create( igraph_t* g, int ident, int* tt_vcnt, int* tt_ecnt )
  * @param tt_vcnt   pointer to the tt vertice counter
  * @param tt_ecnt   pointer to the tt edge counter
  */
-void smxgen_network_create_timer( igraph_t* g, int ident, int eid, int edge_cnt,
-        int ch_len, struct timespec* tt, int* tt_vcnt, int* tt_ecnt );
+void smxgen_network_create_timer( igraph_t* g, int ident, igraph_integer_t eid,
+        int edge_cnt, int ch_len, struct timespec* tt, int* tt_vcnt,
+        int* tt_ecnt );
 
 /**
  * Generate thi instructions to destroy the complete smx network
