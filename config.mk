@@ -9,8 +9,8 @@
 # The version number of the app ($(VMAJ).$(VMIN).$(VREV))
 VMAJ = 1
 VMIN = 1
-VREV = 2
-VDEB = 1
+VREV = 3
+VDEB = 2
 
 # the utility library
 SMX_LIBS = smxigraph-0.1 smxutils-1.1
