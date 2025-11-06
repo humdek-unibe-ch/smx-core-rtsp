@@ -1,7 +1,19 @@
 # Changelog
 
 -------------------
-## `v1.1.2` (latest)
+## `v1.1.4` (latest)
+
+### Bug Fixes
+- Fix installation of tpl files.
+
+-------------------
+## `v1.1.3`
+
+### Bug Fixes
+- Fix installation of tpl files.
+
+-------------------
+## `v1.1.2`
 
 ### Changes
 - Use `libigraph` from the Streamix dependency package.

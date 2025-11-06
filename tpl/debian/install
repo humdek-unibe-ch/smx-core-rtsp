@@ -1,4 +1,3 @@
-etc/smx/tpl/smxappgen-<maj_version>/*
-etc/smx/tpl/smxappgen-<maj_version>/*/*
-etc/smx/tpl/smxappgen-<maj_version>/*/*/*
-usr/bin/smxrtsp_graph2svg-<maj_version>.py
+tpl/app/* etc/smx/tpl/smxappgen-<maj_version>/.
+tpl/app/debian/* etc/smx/tpl/smxappgen-<maj_version>/debian/.
+tpl/app/debian/source/* etc/smx/tpl/smxappgen-<maj_version>/debian/source/.
