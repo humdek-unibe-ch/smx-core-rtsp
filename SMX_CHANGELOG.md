@@ -1,7 +1,13 @@
 # Changelog
 
 -------------------
-## `v1.1.3` (latest)
+## `v1.1.4` (latest)
+
+### Bug Fixes
+- Fix installation of tpl files.
+
+-------------------
+## `v1.1.3`
 
 ### Bug Fixes
 - Fix installation of tpl files.
