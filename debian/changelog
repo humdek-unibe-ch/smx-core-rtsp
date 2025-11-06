@@ -1,3 +1,13 @@
+smxrtsp1.1 (1.1.4-3) focal; urgency=medium
+
+  * fix installation
+  * new revision
+  * update changelog
+  * fix typo in installation instruction of tpf files
+  * Create package files for new release v1.1.4
+
+ -- Simon Maurer <simon.maurer@unibe.ch>  Thu, 06 Nov 2025 17:46:50 +0100
+
 smxrtsp1.1 (1.1.2-1) focal; urgency=medium
 
   [ Pierre Bürki ]
