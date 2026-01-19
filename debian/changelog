@@ -1,5 +1,11 @@
 smxrtsp1.1 (1.1.4-3) focal; urgency=medium
 
+  * Create package files for new release v1.1.4
+
+ -- Simon Maurer <simon.maurer@unibe.ch>  Mon, 19 Jan 2026 15:59:42 +0000
+
+smxrtsp1.1 (1.1.4-3) focal; urgency=medium
+
   * Initial release
 
  -- Simon Maurer <simon.maurer@humdek.unibe.ch>  Mon, 19 Jan 2026 15:59:42 +0000
