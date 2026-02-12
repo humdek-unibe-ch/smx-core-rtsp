@@ -1,5 +1,11 @@
 smxrtsp1.1 (1.1.4-3) noble; urgency=medium
 
+  * Create package files for new release v1.1.4
+
+ -- Simon Maurer <simon.maurer@unibe.ch>  Thu, 12 Feb 2026 16:15:06 +0000
+
+smxrtsp1.1 (1.1.4-3) noble; urgency=medium
+
   * Initial release
 
  -- Simon Maurer <simon.maurer@humdek.unibe.ch>  Thu, 12 Feb 2026 16:15:05 +0000
