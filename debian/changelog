@@ -1,10 +1,18 @@
+smxrtsp1.1 (1.1.5-3) trixie; urgency=medium
+
+  * Create package files for new release v1.1.5
+  * Release v1.1.5
+  * bump for multi-distro compatibility
+
+ -- Simon Maurer <simon.maurer@protonmail.ch>  Wed, 18 Feb 2026 09:27:00 +0100
+
 smxrtsp1.1 (1.1.4-3) trixie; urgency=medium
 
   * Create package files for new release v1.1.4
 
  -- Simon Maurer <simon.maurer@unibe.ch>  Tue, 20 Jan 2026 09:44:37 +0000
 
-smxrtsp1.1 (1.1.4-3) trixie; urgency=medium
+smxrtsp1.1 (1.1.0-1) trixie; urgency=medium
 
   * Initial release
 
