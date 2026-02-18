@@ -1,7 +1,13 @@
 # Changelog
 
 -------------------
-## `v1.1.4` (latest)
+## `v1.1.5` (latest)
+
+### Changes
+- Bump to avoid multi-distro issues.
+
+-------------------
+## `v1.1.4`
 
 ### Bug Fixes
 - Fix installation of tpl files.
