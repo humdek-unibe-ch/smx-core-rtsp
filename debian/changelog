@@ -1,3 +1,9 @@
+smxrtsp1.1 (1.1.6-3) trixie; urgency=medium
+
+  * allow to skip sia generations
+
+ -- Simon Maurer <simon.maurer@unibe.ch>  Wed, 04 Mar 2026 13:14:36 +0100
+
 smxrtsp1.1 (1.1.5-3) trixie; urgency=medium
 
   * Create package files for new release v1.1.5
