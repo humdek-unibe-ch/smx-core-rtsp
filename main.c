@@ -60,9 +60,10 @@ int main( int argc, char **argv )
     FILE* out_file;
     int path_size, name_size;
     int c;
+    bool gen_sia = true;
     igraph_i_set_attribute_table( &igraph_cattribute_table );
 
-    while( ( c = getopt( argc, argv, "hva:b:d:s:e:p:f:" ) ) != -1 )
+    while( ( c = getopt( argc, argv, "hvSa:b:d:s:e:p:f:" ) ) != -1 )
         switch( c ) {
             case 'h':
                 printf( "Usage:\n  %s [OPTION...] FILE\n\n", argv[0] );
@@ -75,6 +76,7 @@ int main( int argc, char **argv )
                 printf( "  -e 'author'      The author of the source (default: TPF <tpf@humdek.unibe.ch>)\n" );
                 printf( "  -f 'format'      Format of the graph either 'gml' or 'graphml'\n" );
                 printf( "  -p 'path'        Path to store the generated app files\n" );
+                printf( "  -S               Skip SIA generation\n" );
                 printf( "  -s 'definitions' Additional schema definitions of the form '<def_1>,...,<def_n>'\n"
                         "                   where a definition <def_*> is of the form '<def_name>:<def_pkg_name>:<def_version>'\n" );
                 return 0;
@@ -98,6 +100,9 @@ int main( int argc, char **argv )
                 break;
             case 's':
                 schema_defs = optarg;
+                break;
+            case 'S':
+                gen_sia = false;
                 break;
             case 'f':
                 format = optarg;
@@ -159,23 +164,27 @@ int main( int argc, char **argv )
     fclose( ifile );
 
     // GENERATE RTS SIA CODE
-    siagen( &g_new, &g, &symbols );
-    siagen_write( &symbols, path_sia, format );
+    if( gen_sia )
+    {
+        siagen( &g_new, &g, &symbols );
+        siagen_write( &symbols, path_sia, format );
 
-    out_file = fopen( path_main_sia, "w" );
+        out_file = fopen( path_main_sia, "w" );
 
-    if( strcmp( format, G_FMT_GML ) == 0 ) {
-        igraph_write_graph_gml( &g_new, out_file, NULL, G_GML_HEAD );
-    }
-    else if( strcmp( format, G_FMT_GRAPHML ) == 0 ) {
-        igraph_write_graph_graphml( &g_new, out_file, 0 );
-    }
-    else {
-        printf( "Unknown format '%s'!\n", format );
-        return -1;
-    }
+        if( strcmp( format, G_FMT_GML ) == 0 ) {
+            igraph_write_graph_gml( &g_new, out_file, NULL, G_GML_HEAD );
+        }
+        else if( strcmp( format, G_FMT_GRAPHML ) == 0 ) {
+            igraph_write_graph_graphml( &g_new, out_file, 0 );
+        }
+        else {
+            printf( "Unknown format '%s'!\n", format );
+            return -1;
+        }
 
-    fclose( out_file );
+        fclose( out_file );
+        igraph_destroy( &g_new );
+    }
 
     // GENERATE BOX HEADER AND TEMPLATE FILES
     igraph_cattribute_GAS_set( &g, "author", author );
@@ -211,7 +220,6 @@ int main( int argc, char **argv )
     free( path_sia );
 
     igraph_destroy( &g );
-    igraph_destroy( &g_new );
     siagen_destroy( &symbols );
 
     return 0;
