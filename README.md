@@ -27,6 +27,7 @@ Options:
   -e 'author'      The author of the source (default: TPF <tpf@humdek.unibe.ch>)
   -f 'format'      Format of the graph either 'gml' or 'graphml'
   -p 'path'        Path to store the generated app files
+  -S               Skip SIA generation
   -s 'definitions' Additional schema definitions of the form '<def_1>,...,<def_n>'
                    where a definition <def_*> is of the form '<def_name>:<def_pkg_name>:<def_version>'
 ```
