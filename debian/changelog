@@ -1,3 +1,12 @@
+smxrtsp1.1 (1.1.6-3) noble; urgency=medium
+
+  * Create package files for new release v1.1.4
+  * Release v1.1.4
+  * bump for multi-distro compatibility
+  * allow to skip sia generations
+
+ -- Simon Maurer <simon.maurer@unibe.ch>  Wed, 18 Mar 2026 11:20:36 +0000
+
 smxrtsp1.1 (1.1.4-3) noble; urgency=medium
 
   * Create package files for new release v1.1.4
